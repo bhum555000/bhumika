@@ -79,7 +79,7 @@ a:hover{color:{{ accent }};text-decoration-color:{{ accent }}}
     </div>
     <div style="flex:3 1 400px;min-width:0">
       
-      <div style="font: 600 32px/1.4 'Inter',sans-serif; letter-spacing: -.01em; max-width: 680px; font-size: 22px; width: 938px; height: 120px">I get regional rail projects built — data, stakeholders, funding, all of it. Lately that's pulled me into a second lane: helping public agencies make sense of AI before they're asked to regulate it.</div><div style="font: 400 16px/1.7 'Inter',sans-serif; color: #555; margin-top: 28px; max-width: 640px; width: 809px; height: 169px">Embedded at MTA's Office of Statewide Planning — MARC Commuter Rail, TIP/STIP programming, wayfinding across Maryland. Before that: Amtrak's Gateway Program and Mumbai Metro Line 3. Civil engineering (CEPT), city &amp; regional planning (Rutgers), now working through a data analytics degree on the side. Also WSP's go-to on AI — piloting an automation tool with FEMA and writing the firm's adoption playbook.</div>
+      <div style="font: 600 32px/1.4 'Inter',sans-serif; letter-spacing: -.01em; max-width: 680px; font-size: 22px; width: 482px; height: 173px">I get regional rail projects built — data, stakeholders, funding, all of it. Lately that's pulled me into a second lane: helping public agencies make sense of AI before they're asked to regulate it.</div><div style="font: 400 16px/1.7 'Inter',sans-serif; color: #555; margin-top: 28px; max-width: 640px; width: 509px; height: 187px">Embedded at MTA's Office of Statewide Planning — MARC Commuter Rail, TIP/STIP programming, wayfinding across Maryland. Before that: Amtrak's Gateway Program and Mumbai Metro Line 3. Civil engineering (CEPT), city &amp; regional planning (Rutgers), now working through a data analytics degree on the side. Also WSP's go-to on AI — piloting an automation tool with FEMA and writing the firm's adoption playbook.</div>
       <div style="margin-top:32px;display:flex;gap:48px;flex-wrap:wrap">
         <div>
           <div style="font:600 11px ui-monospace,Menlo,monospace;color:#999;letter-spacing:.08em;margin-bottom:14px">SCHOOLING</div>
@@ -144,7 +144,7 @@ a:hover{color:{{ accent }};text-decoration-color:{{ accent }}}
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(480px,1fr));gap:1px;background:rgba(0,0,0,.08)">
       <sc-for list="{{ projects }}" as="p" hint-placeholder-count="5">
-        <div style="background:#fff;padding:36px;display:flex;gap:24px;align-items:flex-start;transition:transform .25s ease,box-shadow .25s ease" style-hover="transform:translateY(-4px);box-shadow:0 16px 32px rgba(0,0,0,.08)">
+        <div id="project-card-{{ p.slug }}" style="background:#fff;padding:36px;display:flex;gap:24px;align-items:flex-start;transition:transform .25s ease,box-shadow .25s ease" style-hover="transform:translateY(-4px);box-shadow:0 16px 32px rgba(0,0,0,.08)">
           <div style="width:88px;height:88px;flex:none">
             <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="project-img-{{ p.slug }}" shape="rounded" radius="8" fit="contain" placeholder="Drop project image" hint-size="88px,88px" style="background: url(&quot;./logo-acee0186ac5a58ad43229e0bc1b97c3a-mrl8zmki-wkco.svg&quot;) center / contain no-repeat"></x-import>
           </div>
@@ -210,7 +210,7 @@ a:hover{color:{{ accent }};text-decoration-color:{{ accent }}}
     <div style="font:400 15px/1.6 'Inter',sans-serif;color:#666;max-width:700px;margin-bottom:56px">Transit and public policy are my day job; AI governance is where I keep getting pulled. Below: the questions I'm chasing, and a few resources worth your time.</div>
     <div>
       <sc-for list="{{ researchAreas }}" as="r" hint-placeholder-count="4">
-        <div style="display:flex;gap:32px;padding:32px 12px;margin:0 -12px;border-top:1px solid rgba(0,0,0,.1);align-items:baseline;transition:background .2s ease" style-hover="background:rgba(0,0,0,.025)">
+        <div style="display:flex;gap:32px;padding:32px 12px;margin:0 -12px;border-top:1px solid rgba(0,0,0,.1);align-items:flex-start;transition:background .2s ease" style-hover="background:rgba(0,0,0,.025)">
           <div style="flex:none;width:56px;font:800 34px/1 'Inter',sans-serif;color:rgba(0,0,0,.14);transition:color .2s ease" style-hover="color:{{ accent }}">{{ r.num }}</div>
           <div style="flex:1 1 320px;min-width:0;max-width:360px">
             <div style="font:700 20px/1.3 'Inter',sans-serif;letter-spacing:-.01em">{{ r.title }}</div>
@@ -219,12 +219,16 @@ a:hover{color:{{ accent }};text-decoration-color:{{ accent }}}
             <div style="font:600 10px ui-monospace,Menlo,monospace;color:#999;letter-spacing:.06em;margin-bottom:8px">PROBLEM STATEMENT</div>
             <div style="font:400 15px/1.65 'Inter',sans-serif;color:#555">{{ r.description }}</div>
           </div>
+          <div style="flex:none;width:140px">
+            <div style="font:600 10px ui-monospace,Menlo,monospace;color:#999;letter-spacing:.06em;margin-bottom:8px">STATUS</div>
+            <div style="font:600 13px 'Inter',sans-serif;color:#333">{{ r.status }}</div>
+          </div>
         </div>
       </sc-for>
     </div>
     <div style="margin-top:64px">
-      <div style="font: 600 11px ui-monospace,Menlo,monospace; color: #4839DB; letter-spacing: .08em; margin-bottom: 8px">READING LIST</div>
-      <div style="font:400 14px 'Inter',sans-serif;color:#888;margin-bottom:24px">A few resources to dive into these topics and grow your knowledge.</div>
+      <div style="font: 600 11px ui-monospace,Menlo,monospace; color: #4839DB; letter-spacing: .08em; margin-bottom: 8px">RESOURCES LIST</div>
+      <div style="font:400 14px 'Inter',sans-serif;color:#888;margin-bottom:24px">My own notes — ideas I'm chasing, fellowships, and updates worth sharing.</div>
       <sc-for list="{{ notes }}" as="n" hint-placeholder-count="3">
         <div style="display:flex;gap:24px;padding:20px 12px;margin:0 -12px;border-top:1px solid rgba(0,0,0,.1);align-items:baseline;flex-wrap:wrap;transition:background .2s ease" style-hover="background:rgba(0,0,0,.025)">
           
@@ -239,7 +243,7 @@ a:hover{color:{{ accent }};text-decoration-color:{{ accent }}}
   </div>
 
   <!-- SKILLS -->
-  <div id="skills-section" data-reveal="skills" data-nav-section="skills" style="padding:80px 64px;border-bottom:1px solid rgba(0,0,0,.08);{{ skillsRevealStyle }}">
+  <div id="skills-section" data-reveal="skills" data-nav-section="skills" style="padding: 80px 64px; border-bottom: 1px solid rgba(0,0,0,.08); background-color: #FDFCFC">
     <div style="font:600 12px ui-monospace,Menlo,monospace;color:{{ accent }};letter-spacing:.08em;margin-bottom:48px">04 / SKILLS &amp; TOOLS</div>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:48px">
       <sc-for list="{{ skillGroups }}" as="g" hint-placeholder-count="3">
@@ -254,7 +258,7 @@ a:hover{color:{{ accent }};text-decoration-color:{{ accent }}}
   </div>
 
   <!-- CONTACT / RESUME -->
-  <div id="contact-section" data-reveal="contact" data-nav-section="contact" style="padding:56px 64px;display:grid;grid-template-columns:1fr 1fr;gap:64px;{{ contactRevealStyle }}">
+  <div id="contact-section" data-reveal="contact" data-nav-section="contact" style="padding: 56px 64px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; background-color: #FFFFFF">
     <div>
       <div style="font:600 12px ui-monospace,Menlo,monospace;color:{{ accent }};letter-spacing:.08em;margin-bottom:14px">05 / CONTACT</div>
       <div style="font:700 26px 'Inter',sans-serif;letter-spacing:-.02em;margin-bottom:20px">Let's talk about your next plan.</div>
@@ -323,13 +327,13 @@ class Component extends DCLogic {
     if (!el || typeof L === "undefined" || el._leaflet_id) return;
     const accent = this.props.accentColor ?? "#1a4fd6";
     const locations = [
-      { title: "Silver Spring Turnback Feasibility & Design", place: "Silver Spring, MD", lat: 38.9959, lng: -77.0281 },
-      { title: "MTA — Office of Statewide Planning", place: "Baltimore, MD", lat: 39.2904, lng: -76.6122 },
-      { title: "MTA Unhoused Study", place: "Baltimore, MD", lat: 39.295, lng: -76.605 },
-      { title: "FEMA AI Ordinance Automation Tool", place: "Philadelphia, PA (FEMA Region III)", lat: 39.9526, lng: -75.1652 },
-      { title: "WMATA Safety Risk Assessment Plan", place: "Washington, DC", lat: 38.9072, lng: -77.0369 },
-      { title: "Amtrak Gateway Program Internship", place: "Manhattan, NY", lat: 40.7506, lng: -73.9935 },
-      { title: "Mumbai Metro Line 3", place: "Mumbai, Maharashtra, India", lat: 19.076, lng: 72.8777 }
+      { slug: 0, title: "Silver Spring Turnback Feasibility & Design", place: "Silver Spring, MD", lat: 38.9959, lng: -77.0281 },
+      { slug: 1, title: "MTA — Office of Statewide Planning", place: "Baltimore, MD", lat: 39.2904, lng: -76.6122 },
+      { slug: 2, title: "MTA Unhoused Study", place: "Baltimore, MD", lat: 39.295, lng: -76.605 },
+      { slug: 3, title: "FEMA AI Ordinance Automation Tool", place: "Philadelphia, PA (FEMA Region III)", lat: 39.9526, lng: -75.1652 },
+      { slug: 4, title: "WMATA Safety Risk Assessment Plan", place: "Washington, DC", lat: 38.9072, lng: -77.0369 },
+      { slug: 5, title: "Amtrak Gateway Program Internship", place: "Manhattan, NY", lat: 40.7506, lng: -73.9935 },
+      { slug: 6, title: "Mumbai Metro Line 3", place: "Mumbai, Maharashtra, India", lat: 19.076, lng: 72.8777 }
     ];
     const map = L.map("story-map", { scrollWheelZoom: false, zoomControl: false, attributionControl: false });
     L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
@@ -352,7 +356,14 @@ class Component extends DCLogic {
     ];
     const markers = locations.map((loc, i) => {
       const m = L.marker([loc.lat, loc.lng], { icon }).addTo(map)
-        .bindPopup(`<strong>${loc.title}</strong><br><span style="color:#888">${loc.place}</span>`);
+        .bindPopup(`<strong>${loc.title}</strong><br><span style="color:#888">${loc.place}</span><br><a href="#project-card-${loc.slug}" style="color:${accent};font-weight:600;font-size:12px">View project →</a>`);
+      m.on("click", () => {
+        const target = document.getElementById(`project-card-${loc.slug}`);
+        if (target) {
+          const rect = target.getBoundingClientRect();
+          window.scrollTo({ top: window.scrollY + rect.top - (window.innerHeight / 2 - rect.height / 2), behavior: "smooth" });
+        }
+      });
       if (!seenPlaces.has(loc.place)) {
         const d = dirs[seenPlaces.size % dirs.length];
         seenPlaces.add(loc.place);
@@ -427,9 +438,9 @@ class Component extends DCLogic {
       showContactForm: this.props.showContactForm ?? true,
       interests: ["Transit & Rail Planning", "Regional Programming (TIP/STIP)", "Grant Support", "Workflow Automation", "Business Development", "YPT Board Member", "Data Analytics"],
       notes: [
-        { date: "Add date", mark: "1", title: "Add a resource or idea", description: "Add a short note describing this resource, article, or research idea at the intersection of public policy, planning, and AI.", link: "" },
-        { date: "Add date", mark: "2", title: "Add a resource or idea", description: "Add a short note describing this resource, article, or research idea at the intersection of public policy, planning, and AI.", link: "" },
-        { date: "Add date", mark: "3", title: "Add a resource or idea", description: "Add a short note describing this resource, article, or research idea at the intersection of public policy, planning, and AI.", link: "" }
+        { date: "Fellowship", title: "GovAI Seasonal Fellowship — Centre for the Governance of AI", description: "A 3-month research or applied fellowship in AI governance and policy, with mentorship from leading researchers. Best suited if you want dedicated time to write and publish on a specific AI governance question — closest fit to my scope-fidelity and funding-allocation research.", link: "https://www.governance.ai/careers" },
+        { date: "Fellowship", title: "JHU AGI Governance Fellowship — Johns Hopkins School of Government & Policy", description: "A 3-week in-person capstone in DC on frontier AI legislation, institutions, and societal resilience. Best suited for practitioners already active in AI governance looking to sharpen policy chops and build a cross-sector network, not an entry point into the field.", link: "https://sogp.jh.edu/agi-governance-fellowship/" },
+        { date: "Fellowship", title: "Public Interest Technology Fellowships (Ford Foundation / New America PIT-UN)", description: "A network of fellowships pairing technologists and policy practitioners with government to build tech that serves the public good. Best suited if you want hands-on placement inside an agency rather than a research track — a natural next step from planning practice into public-sector tech.", link: "https://www.fordfoundation.org/news-and-stories/big-ideas/public-interest-technology/" }
       ],
       filterOptions: ["all", "transit", "ai", "research", "business"].map((key) => {
         const active = this.state.activeFilter === key;
@@ -492,10 +503,10 @@ class Component extends DCLogic {
         { org: "TRB — Transportation Research Board", role: "Friend of Committees — helps set up sessions for various committees and assists with reviewing papers", link: "https://www.trb.org/", noLink: false }
       ],
       researchAreas: [
-        { title: "Scope-Fidelity Diagnostic Framework to Identify AI Failures for Planners", num: "01", description: "Planners can't push back on vendors if they can't name what's failing. Working with an e-permitting startup to build a toolkit that diagnoses AI failures and closes that gap." },
-        { title: "Microeconomics of AI Failure in Regulated Systems", num: "02", description: "AI plan-review tools are cutting permit review times in half — but scope-fidelity failures (missed local amendments, false flags, silent omissions) create hidden costs in rework, appeals, and tool abandonment that offset those gains. Building a diagnostic framework, and the empirical study to put real dollar figures on it." },
-        { title: "A Standardized Performance Framework for Transit Homelessness Responses", num: "03", description: "Developing and pilot-testing the Transit Homelessness Performance Measurement (THPM) framework — an NTD-compatible way for agencies to measure and benchmark safety, ridership, and service-reliability outcomes of their homelessness responses, and to document that work in a format federal programs recognize as fundable safety and crime-prevention spending." },
-        { title: "Scalable AGI Playbooks for the Public Sector", num: "04", description: "Working on an internal national effort at WSP to strategize AI use cases and build a firm-wide playbook — turning a FEMA automation pilot into a repeatable framework teams can adopt, not guess at." }
+        { title: "Scope-Fidelity Diagnostic Framework to Identify AI Failures for Planners", num: "01", status: "Submitted to JAPA", description: "Planners can't push back on vendors if they can't name what's failing. Working with an e-permitting startup to build a toolkit that diagnoses AI failures and closes that gap." },
+        { title: "Microeconomics of AI Failure in Regulated Systems", num: "02", status: "Ongoing", description: "AI plan-review tools are cutting permit review times in half — but scope-fidelity failures (missed local amendments, false flags, silent omissions) create hidden costs in rework, appeals, and tool abandonment that offset those gains. Building a diagnostic framework, and the empirical study to put real dollar figures on it." },
+        { title: "A Standardized Performance Framework for Transit Homelessness Responses", num: "03", status: "Submitted to TCRP — Transit Cooperative Research Program", description: "Developing and pilot-testing the Transit Homelessness Performance Measurement (THPM) framework — an NTD-compatible way for agencies to measure and benchmark safety, ridership, and service-reliability outcomes of their homelessness responses, and to document that work in a format federal programs recognize as fundable safety and crime-prevention spending." },
+        { title: "Scalable AGI Playbooks for the Public Sector", num: "04", status: "Ongoing", description: "Working on an internal national effort at WSP to strategize AI use cases and build a firm-wide playbook — a repeatable framework teams can adopt, not guess at." }
       ],
       skillGroups: [
         { group: "Areas of Practice", items: ["Transit & Rail Service Planning", "Statewide / Regional Planning (TIP/STIP)", "Transit Wayfinding", "Project Management", "Data Analytics", "Policy Analysis"] },
